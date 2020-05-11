@@ -24,17 +24,17 @@
                     <label for="Kategori Produk">Kategori</label>
                     <select class="form-control" name="kategori_produk">
                         <option value="Elektronik"
-                        @if($product->kategori=='Elektronik')
+                        @if($product->kategori_produk=='Elektronik')
                         selected
                         @endif
                         >Elektronik</option>
                         <option value="Fashion"
-                        @if($product->kategori=="Fashion")
+                        @if($product->kategori_produk=='Fashion')
                         selected
                         @endif
                         >Fashion</option>
                         <option value="Komputer"
-                        @if($product->kategori=='Komputer')
+                        @if($product->kategori_produk=='Komputer')
                         selected
                         @endif
                         >Komputer</option>
@@ -60,11 +60,18 @@
                 <div class="form-group">
                     <label for="Kondisi Produk">Kondisi Produk</label><br>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="kondisi_produk" id="inlineRadio1" value="Baru" checked>
+                        <input class="form-check-input" type="radio" name="kondisi_produk" value="Baru"
+                        @if($product->kondisi_produk=='Baru')
+                        checked
+                        @endif
                         <label class="form-check-label" for="inlineRadio1">Baru</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="kondisi_produk" id="inlineRadio2" value="Bekas">
+                        <input class="form-check-input" type="radio" name="kondisi_produk" value="Bekas"
+                        @if($product->kondisi_produk=='Bekas')
+                        checked
+                        @endif>
+                        
                         <label class="form-check-label" for="inlineRadio2">Bekas</label>
                     </div>
                     @error('kondisi_produk')
