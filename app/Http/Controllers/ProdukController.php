@@ -32,11 +32,21 @@ class ProdukController extends Controller
         return view('edit-product', ['product'=>$result]);
     }
     
-    public function update($product)
+    public function update(Request $request)
     {
-        $result = Product::find($product);
+//        dd($request->all());
+        $dataValid = $request->validate([
+            'nama_produk' => 'required',
+            'kategori_produk' => 'required',
+            'harga_produk' => 'required|numeric',
+            'stok_produk' => 'required|numeric',
+            'kondisi_produk' => 'required|in:Baru,Bekas',
+            'deskripsi_produk' => 'required'
+        ]);
         
-        return view('edit-product', ['product'=>$result]);
+        Product::where('id',$request->id)->update($dataValid);
+        $request->session()->flash('pesan', 'Produk Berhasil di Update!');
+        return redirect ('/');
     }
     
     public function store(Request $request)
@@ -52,6 +62,15 @@ class ProdukController extends Controller
         Product::create($dataValid);
         
         $request->session()->flash('pesan', 'Produk Berhasil ditambahkan!');
+        return redirect ('/');
+    }
+    
+    public function delete(Request $request, $product)
+    {
+        $result = Product::find($product);
+        $result->delete();
+        
+        $request->session()->flash('pesan', 'Produk Berhasil Dihapus!');
         return redirect ('/');
     }
     

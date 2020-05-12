@@ -26,6 +26,8 @@ Route::post('/store-product', 'ProdukController@store');
 Route::get('/create-product', 'ProdukController@create');
 Route::get('/show-product/{product}', 'ProdukController@show');
 Route::get('/edit-product/{product}', 'ProdukController@edit');
+Route::get('/delete-product/{product}', 'ProdukController@delete');
+Route::post('/update-product/', 'ProdukController@update');
 
 Route::get('/bs', function () {
     $datakategori = ['Dewasa','Anak-anak'];

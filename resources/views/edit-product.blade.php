@@ -13,6 +13,8 @@
             <form action="{{ url('/update-product') }}" method="post">
                @csrf
                
+               <input name="id" type="hidden" value="{{ $product->id }}">
+               
                 <div class="form-group">
                     <label for="Nama Produk">Nama Produk</label>
                     <input type="text" class="form-control" name="nama_produk" placeholder="Nama Produk" value="{{ $product->nama_produk }}">
