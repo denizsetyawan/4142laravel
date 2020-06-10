@@ -74,19 +74,6 @@ class ProdukController extends Controller
         return redirect ('/');
     }
     
-    public function fileUpload()
-    {
-        return view('/upload-file');
-    }
-    
-    public function prosesUpload(Request $request)
-    {
-//        return view('/upload-file');
-//        if($request->hasFile('berkas'))
-//            echo "Berhasil Upload";
-        dd($request);
-    }
-    
 //    public function simpanproduk(Request $request)
 //    {
 //        $dataValid = $request->validate([
