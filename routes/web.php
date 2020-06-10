@@ -28,8 +28,8 @@ Route::get('/show-product/{product}', 'ProdukController@show');
 Route::get('/edit-product/{product}', 'ProdukController@edit');
 Route::get('/delete-product/{product}', 'ProdukController@delete');
 Route::post('/update-product/', 'ProdukController@update');
-Route::get('/upload-file/', 'ProdukController@fileUpload');
-Route::post('/file-upload/', 'ProdukController@prosesUpload');
+Route::get('/upload-file/', 'GalleryController@index');
+Route::post('/file-upload/', 'GalleryController@prosesUpload');
 
 Route::get('/bs', function () {
     $datakategori = ['Dewasa','Anak-anak'];

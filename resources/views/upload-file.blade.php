@@ -15,7 +15,17 @@
             
             <div class="form-group">
                 <label for="Upload File">Upload File</label>
-                <input name="file" type="file" class="form-control-file">
+                <input name="berkas" type="file" class="form-control-file">
+                @error('berkas')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="form-group">
+                <label>Caption</label>
+                <input name="caption" type="text" class="form-control" placeholder="Caption">
+                @error('caption')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
             </div>
             <button type="submit" class="btn btn-primary">Upload</button>
         </form>
