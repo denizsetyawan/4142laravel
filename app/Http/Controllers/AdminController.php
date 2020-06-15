@@ -9,6 +9,7 @@ class AdminController extends Controller
 {
     public function dataProduk()
     {
+        echo '<button type="button"><a href="/logout">Logout</button>';
         dd ('Data Produk');
     }
     
