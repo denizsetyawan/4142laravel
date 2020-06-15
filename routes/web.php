@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 //});
 
 //PRODUK
-Route::get('/', 'ProdukController@index');
+Route::get('/list-barang', 'ProdukController@index');
 //Route::post('/simpan-produk', 'ProdukController@simpanproduk');
 
 Route::get('/list-product', 'ProdukController@index');
@@ -30,6 +30,19 @@ Route::get('/delete-product/{product}', 'ProdukController@delete');
 Route::post('/update-product/', 'ProdukController@update');
 Route::get('/upload-file/', 'GalleryController@index');
 Route::post('/file-upload/', 'GalleryController@prosesUpload');
+
+//session
+Route::get('/session', 'SessionController@index');
+Route::get('/create-session', 'SessionController@createSession');
+Route::get('/get-session', 'SessionController@getSession');
+Route::get('/delete-session', 'SessionController@login');
+
+//middleware
+Route::get('/', 'AdminController@login');
+Route::post('/login', 'AdminController@prosesLogin');
+Route::get('/data-produk', 'AdminController@dataProduk')->middleware('login');
+Route::get('/data-kategori', 'AdminController@dataKategori');
+Route::get('/logout', 'AdminController@logout');
 
 Route::get('/bs', function () {
     $datakategori = ['Dewasa','Anak-anak'];
