@@ -56,7 +56,9 @@
                             <img src="{{ url('/foto/'.$p->berkas) }}" width="100px" alt="Gambar">
                         </td>
                         <td>{{ $p->caption }}</td>
-                        <td></td>
+                        <td>
+                            <a href="/hapus-file/{{ $p->id }}" class="btn btn-danger">Hapus</a>
+                        </td>
                     </tr>
                     @empty
                     <td colspan="4">

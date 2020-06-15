@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Gallery;
+use File;
 
 class GalleryController extends Controller
 {
@@ -65,5 +66,15 @@ class GalleryController extends Controller
  
 		return redirect()->back()->with('status','Gambar Berhasil Di upload!');
 	}
+    
+    public function hapusFile($id)
+    {
+		$gambar = Gallery::where('id',$id)->first();
+		File::delete('foto/'.$gambar->berkas);
+ 
+		Gallery::where('id',$id)->delete();
+ 
+		return redirect()->back()->with('status','Gambar Berhasil Dihapus!');
+    }
 
 }

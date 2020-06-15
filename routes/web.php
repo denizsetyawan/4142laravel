@@ -18,7 +18,6 @@ use Illuminate\Support\Facades\Route;
 //});
 
 //PRODUK
-Route::get('/list-barang', 'ProdukController@index');
 //Route::post('/simpan-produk', 'ProdukController@simpanproduk');
 
 Route::get('/list-product', 'ProdukController@index');
@@ -28,8 +27,13 @@ Route::get('/show-product/{product}', 'ProdukController@show');
 Route::get('/edit-product/{product}', 'ProdukController@edit');
 Route::get('/delete-product/{product}', 'ProdukController@delete');
 Route::post('/update-product/', 'ProdukController@update');
+
+//upload file
 Route::get('/upload-file/', 'GalleryController@index');
 Route::post('/file-upload/', 'GalleryController@prosesUpload');
+
+//hapus file
+Route::get('/hapus-file/{id}', 'GalleryController@hapusFile');
 
 //session
 Route::get('/session', 'SessionController@index');
