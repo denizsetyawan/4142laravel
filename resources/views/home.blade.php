@@ -1,41 +1,23 @@
-@extends('layout')
+@extends('layouts.app')
+
 @section('content')
-<div class="col-9">
-<h1>Halaman Home</h1>
-    <ul class="list-unstyled">
-        @foreach ($judul as $item)
-        <li class="media">
-            <div class="media-body">
-                <h5 class="mt-0 mb-1">{{$item}}</h5>
-                Lorem ipsum, atau ringkasnya lipsum, adalah teks standar yang ditempatkan untuk mendemostrasikan elemen grafis atau presentasi visual seperti font, tipografi, dan tata letak.
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Dashboard</div>
+
+                <div class="card-body">
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+
+                    You are logged in!
+                </div>
             </div>
-        </li>
-        @endforeach
-    </ul>
+        </div>
+    </div>
 </div>
 @endsection
-
-<!--
-<div class="col-9">
-    <ul class="list-unstyled">
-        <li class="media">
-           <div class="media-body">
-            <h5 class="mt-0 mb-1">List based media object</h5>
-            Lorem ipsum, atau ringkasnya lipsum, adalah teks standar yang ditempatkan untuk mendemostrasikan elemen grafis atau presentasi visual seperti font, tipografi, dan tata letak.
-            </div>
-        </li>
-        <li class="media my-4">
-            <div class="media-body">
-                <h5 class="mt-0 mb-1">List based media object</h5>
-                Lorem ipsum, atau ringkasnya lipsum, adalah teks standar yang ditempatkan untuk mendemostrasikan elemen grafis atau presentasi visual seperti font, tipografi, dan tata letak.
-            </div>
-        </li>
-        <li class="media">
-           <div class="media-body">
-            <h5 class="mt-0 mb-1">List based media object</h5>
-            Lorem ipsum, atau ringkasnya lipsum, adalah teks standar yang ditempatkan untuk mendemostrasikan elemen grafis atau presentasi visual seperti font, tipografi, dan tata letak.
-            </div>
-        </li>
-    </ul>
-</div>
--->

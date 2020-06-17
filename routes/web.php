@@ -28,6 +28,9 @@ Route::get('/edit-product/{product}', 'ProdukController@edit');
 Route::get('/delete-product/{product}', 'ProdukController@delete');
 Route::post('/update-product/', 'ProdukController@update');
 
+//kategori
+Route::get('/kategori', 'Category@index')->middleware('auth');
+
 //upload file
 Route::get('/upload-file/', 'GalleryController@index');
 Route::post('/file-upload/', 'GalleryController@prosesUpload');
@@ -43,7 +46,7 @@ Route::get('/delete-session', 'SessionController@login');
 
 //middleware
 Route::get('/', 'AdminController@login');
-Route::post('/login', 'AdminController@prosesLogin');
+Route::post('/proses-login', 'AdminController@prosesLogin');
 Route::get('/data-produk', 'AdminController@dataProduk')->middleware('login');
 Route::get('/data-kategori', 'AdminController@dataKategori');
 Route::get('/logout', 'AdminController@logout');
@@ -91,3 +94,14 @@ Route::get('/editpost', 'PostController@editpost');
 Route::get('/deletepost', 'PostController@deletepost');
 Route::get('/getpost', 'PostController@getpost');
 Route::get('/insert', 'PostController@insert');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

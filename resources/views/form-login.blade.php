@@ -17,7 +17,7 @@
         </div>
         @endif
 
-        <form action="/login" method="post">
+        <form action="/proses-login" method="post">
            @csrf
            
             <div class="form-group">
