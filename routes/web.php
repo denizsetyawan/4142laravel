@@ -29,7 +29,10 @@ Route::get('/delete-product/{product}', 'ProdukController@delete');
 Route::post('/update-product/', 'ProdukController@update');
 
 //kategori
-Route::get('/kategori', 'Category@index')->middleware('auth');
+Route::get('/kategori', 'CategoryController@index')->middleware('auth');
+Route::get('/tambah-kategori', 'CategoryController@create')->middleware('auth');
+Route::post('/proses-buat-kategori', 'CategoryController@store')->middleware('auth');
+Route::get('/hapus/{id}', 'CategoryController@delete')->middleware('auth');
 
 //upload file
 Route::get('/upload-file/', 'GalleryController@index');

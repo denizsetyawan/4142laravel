@@ -14,8 +14,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $kategori = Category::all()->get();
-        return view('kategori.all',compact('kategori'));
+        $kategori = Category::all();
+        return view('kategori.index',compact('kategori'));
     }
 
     /**
@@ -36,7 +36,22 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $dataValid = $request->validate([
+            'nama_kategori' => 'required'
+        ]);
+        
+        Category::create([
+			'nama_kategori' => $request->nama_kategori,
+		]);
+        
+        return redirect('/kategori')->with('status','Kategori Berhasil ditambahkan!');
+    }
+    
+    public function delete(Request $request,$id)
+    {
+        $category = Category::where('id',$id)->delete();
+        
+        return redirect('/kategori')->with('status','Kategori Berhasil dihapus!');
     }
 
     /**
