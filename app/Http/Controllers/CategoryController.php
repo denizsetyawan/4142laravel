@@ -38,6 +38,9 @@ class CategoryController extends Controller
     {
         $dataValid = $request->validate([
             'nama_kategori' => 'required'
+        ],
+        [
+            'nama_kategori.required' => 'Nama Kategori harus di isi!'
         ]);
         
         Category::create([
