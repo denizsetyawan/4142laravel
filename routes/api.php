@@ -18,9 +18,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/product', function () {
-    return response->json(
-        [
-            "message" -> "method get sukses"
-        ]);
-});
+//Route::get('/product', function () {
+//    return response->json(
+//        [
+//            "message" -> "method get sukses"
+//        ]);
+//});
